@@ -27,15 +27,21 @@ function getWinner(computerChoice, userChoice) {
     // if the answers are the same, return draw
     // enter choices for that will make computer win everything else means the user won
     if (computerChoice === userChoice) {
-        console.log(`Draw! ${computerChoice.charAt(0).toUpperCase() + computerChoice.slice(1)} and ${userChoice.charAt(0).toUpperCase() + userChoice.slice(1)} are the same.`);
+        console.log(`Draw! ${capitalizeFirstLetter(computerChoice)} and ${capitalizeFirstLetter(userChoice)} are the same.`);
         return "Draw";
     } else if ((computerChoice === "rock" && userChoice === "scissors") || (computerChoice === "scissors" && userChoice === "paper") || (computerChoice === "paper" && userChoice === "rock")) {
-        console.log(`You Lose! ${computerChoice.charAt(0).toUpperCase() + computerChoice.slice(1)} beats ${userChoice.charAt(0).toUpperCase() + userChoice.slice(1)}.`);
+        console.log(`You Lose! ${capitalizeFirstLetter(computerChoice)} beats ${capitalizeFirstLetter(userChoice)}.`);
         return "computerWins";
     } else {
-        console.log(`You Win! ${userChoice.charAt(0).toUpperCase() + userChoice.slice(1)} beats ${computerChoice.charAt(0).toUpperCase() + computerChoice.slice(1)}.`);
+        console.log(`You Win! ${capitalizeFirstLetter(userChoice)} beats ${capitalizeFirstLetter(computerChoice)}.`);
         return "userWins";
     }
+}
+
+
+function capitalizeFirstLetter(string) {
+    // capitalize the first letter of the choice (equivalent to .Title() in python)
+    return string.charAt(0).toUpperCase() + string.slice(1)
 }
 
 
