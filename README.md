@@ -1,4 +1,4 @@
-# Rock Paper Scissors: A CLI Spectacle
+# Rock Paper Scissors
 
 ## Introduction 🎉
 
