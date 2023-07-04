@@ -11,33 +11,11 @@ function getComputerChoice() {
 }
 
 
-function getUserChoice() {
-    // function that asks for the users choice from a list of choices suggested in the prompt
-    // the function assumes the user never gives an odd option
-    // create a prompt to ask for the users choice
-    let handOptions = prompt("Rock, Paper or Scissors. Choose one: ");
-
-    // return the choice
-    return handOptions.toLowerCase();
+function getUserChoice(value) {
+    let handOptions;
+    handOptions = value;
+    return handOptions;
 }
-
-
-function getWinner(computerChoice, userChoice) {
-    // function that compares the users and computers choices and returns who won or a draw
-    // if the answers are the same, return draw
-    // enter choices for that will make computer win everything else means the user won
-    if (computerChoice === userChoice) {
-        console.log(`Draw! ${capitalizeFirstLetter(computerChoice)} and ${capitalizeFirstLetter(userChoice)} are the same.`);
-        return "Draw";
-    } else if ((computerChoice === "rock" && userChoice === "scissors") || (computerChoice === "scissors" && userChoice === "paper") || (computerChoice === "paper" && userChoice === "rock")) {
-        console.log(`You Lose! ${capitalizeFirstLetter(computerChoice)} beats ${capitalizeFirstLetter(userChoice)}.`);
-        return "computerWins";
-    } else {
-        console.log(`You Win! ${capitalizeFirstLetter(userChoice)} beats ${capitalizeFirstLetter(computerChoice)}.`);
-        return "userWins";
-    }
-}
-
 
 function capitalizeFirstLetter(string) {
     // capitalize the first letter of the choice (equivalent to .Title() in python)
@@ -45,29 +23,80 @@ function capitalizeFirstLetter(string) {
 }
 
 
-function game() {
-    // run the game 5 times and keep score of the winner of each round then print out the final scores for both the computer and the player
-    let userScore = 0; // use to track the players score
-    let computerScore = 0; // use to track the computers score
-    let counter = 0; // counter variable for the while loop
-    let scorer; // use to track the return value from the getWinner function
-
-    while (counter < 5) {
-        scorer = getWinner(getComputerChoice(), getUserChoice());
-
-        if (scorer === "computerWins") {
-            computerScore += 1;
-        } else if (scorer === "userWins") {
-            userScore += 1;
-        } else {
-            computerScore += 0.5;
-            userScore += 0.5;
-        }
-        counter += 1; // increase the counter by one and run the loop again
+let userScore = 0; // use to track the players score
+let computerScore = 0; // use to track the computers score
+let scorer; // use to track the return value from the getWinner function
+function updateScores() {
+    if (scorer === "computerWins") {
+        computerScore++;
+    } else if (scorer === "userWins") {
+        userScore++;
+    } else {
+        computerScore += 0.5;
+        userScore += 0.5;
     }
-    console.log("After 5 rounds the scores are:");
-    console.log(`Computer: ${computerScore}`);
-    console.log(`Player: ${userScore}`);
+    console.log(computerScore);
+    console.log(userScore);
+    compareScores(userScore, computerScore);
 }
-// invoke the game function
+
+
+function compareScores(userScore, computerScore) {
+    if (userScore >= 5) {
+        document.getElementById("results").textContent = "You Win!";
+    } else if (computerScore >= 5) {
+        document.getElementById("results").textContent = "Computer Win!";
+    }
+}
+
+
+function getWinner(computerChoice, userChoice) {
+    // function that compares the users and computers choices and returns who won or a draw
+    // if the answers are the same, return draw
+    // enter choices for that will make computer win everything else means the user won
+    console.log(computerChoice); // DELETE!
+    console.log(userChoice); // DELETE!
+
+    if (computerChoice === userChoice) {
+        // console.log(`Draw! ${capitalizeFirstLetter(computerChoice)} and ${capitalizeFirstLetter(userChoice)} are the same.`);
+        return "Draw";
+    } else if ((computerChoice === "rock" && userChoice === "scissors") || (computerChoice === "scissors" && userChoice === "paper") || (computerChoice === "paper" && userChoice === "rock")) {
+        // console.log(`You Lose! ${capitalizeFirstLetter(computerChoice)} beats ${capitalizeFirstLetter(userChoice)}.`);
+        return "computerWins";
+    } else {
+        // console.log(`You Win! ${capitalizeFirstLetter(userChoice)} beats ${capitalizeFirstLetter(computerChoice)}.`);
+        return "userWins";
+    }
+}
+
+
+// set up a game function
+// get the computers choice using a function
+// get the players choice using a function
+// compare the choices from user and computer
+// give points based on who won the round
+// if any player has 5 points, declare them the winner on the screen
+
+function game() {
+    // listen for the individual button clicks
+    let rock = document.getElementById("rock");
+    let paper = document.getElementById("paper");
+    let scissors = document.getElementById("scissors");
+    
+    rock.addEventListener("click", () => {
+        scorer = getWinner(getComputerChoice(), getUserChoice("rock"));
+        updateScores()
+    });
+
+    paper.addEventListener("click", () => {
+        scorer = getWinner(getComputerChoice(), getUserChoice("paper"));
+        updateScores()
+    });
+
+    scissors.addEventListener("click", () => {
+        scorer = getWinner(getComputerChoice(), getUserChoice("scissors"));
+        updateScores()
+    });
+}
+
 game();
