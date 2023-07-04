@@ -23,7 +23,7 @@ function capitalizeFirstLetter(string) {
 }
 
 
-let userScore = 0; // use to track the players score
+let userScore = 0; // use to trac the players score
 let computerScore = 0; // use to track the computers score
 let scorer; // use to track the return value from the getWinner function
 function updateScores() {
