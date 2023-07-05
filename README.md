@@ -2,9 +2,9 @@
 
 ## Introduction 🎉
 
-Hello world! - here with the jokes - Here lies a piece of art that even Picasso would envy - a JavaScript-based Command-Line Application known as "Rock Paper Scissors". Sounds simple? It's way more than that! Here, the quintessential children's game meets the beauty of JavaScript created by moi.
+Hello world! - here with the jokes - Here lies a piece of art that even Picasso would envy - a JavaScript-based browser game known as "Rock Paper Scissors". Sounds simple? It's way more than that! Here, the quintessential children's game meets the beauty of JavaScript created by moi.
 
-My application loads its magic as soon as your HTML does. No installations, no gimmicks. Just old-school Rock Paper Scissors. You type a hand to play, your computer randomly selected theirs, and voilà! The stage is set for an epic showdown. The program, in all its omniscient glory, declares the winner or calls it a tie. Be warned though, your computer doesn't like losing.
+My application loads its magic as soon as your HTML does. No installations, no gimmicks. Just old-school Rock Paper Scissors. You click a button to play your hand, your computer randomly selected theirs, and voilà! The stage is set for an epic showdown. The program, in all its omniscient glory, declares the winner or calls it a tie. Be warned though, your computer doesn't like losing.
 
 ## Installation Instructions 📚
 
@@ -17,9 +17,9 @@ Yes, you read it right. None, nada, zilch! Your computer won't groan under the w
 ## Usage Instructions 🎮
 
 1. Load the HTML.
-2. You'll see a prompt to choose your weapon - Rock, Paper, or Scissors. Make your decision wisely, warrior!
+2. You'll see 3 buttons - Rock, Paper, or Scissors. Make your decision wisely, warrior!
 3. The computer, in its infinite wisdom, will also make a choice.
-4. Wait for the moment of truth. The program will announce who has bragging rights, or if you both need to go back to strategy school.
+4. After roughly 7 rounds, a winner declared based on who won the most. How do you trust the result? You just do!
 5. Rinse and repeat. Hours of fun, right at your fingertips!
 
 Now, remember, the game has no mercy. It's a dog eat dog world in Rock Paper Scissors. Don't come crying if you lose to a hunk of silicon and wires!
